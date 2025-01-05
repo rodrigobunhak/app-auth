@@ -14,6 +14,5 @@ export const Title = styled.h1`
 
 export const ErrorMessage = styled.div`
   color: red;
-  font-size: 14px;
-  margin-top: -8px;
+  font-size: 12px;
 `;

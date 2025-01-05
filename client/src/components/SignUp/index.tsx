@@ -53,7 +53,7 @@ export const SignUp: React.FC<SignUpProps> = ({ onBackClick }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Title>Legal!</Title>
+      <Title>Cadastro</Title>
       <p>Informe suas credenciais para efetuar seu cadastro</p>
       <InputText
         type="text"
