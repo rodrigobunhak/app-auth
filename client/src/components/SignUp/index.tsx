@@ -1,7 +1,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { authService } from "../../services/Api";
-import { ErrorMessage, Form, Title } from "./styles";
+import { ErrorMessage, Form, SignUpContainer, Title } from "./styles";
 import { Button } from "../../styles/components/Button";
 import { TextButton } from "../../styles/components/TextButton";
 import { InputText } from "../InputText";
@@ -55,14 +55,14 @@ export const SignUp: React.FC<SignUpProps> = ({ onBackClick }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Title>Cadastro</Title>
-      <p>Informe suas credenciais para efetuar seu cadastro</p>
+      <Title>{t('Register')}</Title>
+      <p>{t('Enter your credentials to register')}</p>
       <InputText
         type="text"
         name="name"
         value={formData.name}
         onChange={handleChange}
-        placeholder="Informe seu nome"
+        placeholder={t('Enter your name')}
         icon={<img src={PersonIcon} />}
         required
       />
@@ -71,7 +71,7 @@ export const SignUp: React.FC<SignUpProps> = ({ onBackClick }) => {
         name="email"
         value={formData.email}
         onChange={handleChange}
-        placeholder="Informe seu e-mail"
+        placeholder={t('Enter your email')}
         icon={<img src={MailIcon} />}
         required
       />
@@ -80,13 +80,16 @@ export const SignUp: React.FC<SignUpProps> = ({ onBackClick }) => {
         name="password"
         value={formData.password}
         onChange={handleChange}
-        placeholder="Informe seu senha"
+        placeholder={t('Enter your password')}
         icon={<img src={LockIcon} />}
         required
       />
       {error && <ErrorMessage>{t(error)}</ErrorMessage>}
-      <Button type="submit">Sign Up</Button>
-      <TextButton type="button" onClick={onBackClick}>Voltar</TextButton>
+      <Button type="submit">{t('Sign Up')}</Button>
+      <SignUpContainer>
+        {t('Already have an account?')}
+        <TextButton type="button" onClick={onBackClick}>{t('Sign In')}</TextButton>
+      </SignUpContainer>
     </Form>
   );
 }

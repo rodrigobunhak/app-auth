@@ -56,14 +56,14 @@ export const SignIn: React.FC<SignInProps> = ({ onSignUpClick }) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <Title>Bem vindo!</Title>
-      <p>Informe suas credenciais para acessar</p>
+      <Title>{t('Welcome!')}</Title>
+      <p>{t('Enter your credentials to access')}</p>
       <InputText
         type="email"
         name="email"
         value={credentials.email}
         onChange={handleChange}
-        placeholder="Informe seu e-mail"
+        placeholder={t('Enter your email')}
         icon={<img src={MailIcon} />}
         required
       />
@@ -72,15 +72,15 @@ export const SignIn: React.FC<SignInProps> = ({ onSignUpClick }) => {
         name="password"
         value={credentials.password}
         onChange={handleChange}
-        placeholder="Informe sua senha"
+        placeholder={t('Enter your password')}
         icon={<img src={LockIcon} />}
         required
       />
       {error && <ErrorMessage>{t(error)}</ErrorMessage>}
-      <Button type="submit">Sign In</Button>
+      <Button type="submit">{t('Sign In')}</Button>
       <SignUpContainer>
-        Não tem uma conta?
-        <TextButton type="button" onClick={onSignUpClick}>Sign Up</TextButton>
+        {t('Don\'t have an account?')}
+        <TextButton type="button" onClick={onSignUpClick}>{t('Sign Up')}</TextButton>
       </SignUpContainer>
     </Form>
   );

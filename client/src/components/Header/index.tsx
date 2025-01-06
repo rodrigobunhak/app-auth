@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { useAuth } from "../../contexts/AuthContext";
 import { Button } from "../../styles/components/Button";
 import { HeaderWrapper, Title, UserInfo, UserName } from "./styles";
 
 export function Header(): JSX.Element {
+  const { t } = useTranslation();
   const { user, logout, isAuthenticated } = useAuth();
   
   return (
@@ -11,9 +13,9 @@ export function Header(): JSX.Element {
       {isAuthenticated && (
         <UserInfo>
           <UserName>
-            Logged in as: <strong>{user?.name}</strong>
+            {t('Logged in as')}: <strong>{user?.name}</strong>
           </UserName>
-          <Button size="small" onClick={logout}>Logout</Button>
+          <Button size="small" onClick={logout}>{t('Logout')}</Button>
         </UserInfo>
       )}
     </HeaderWrapper>

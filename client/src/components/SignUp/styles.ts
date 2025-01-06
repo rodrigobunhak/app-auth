@@ -16,3 +16,9 @@ export const ErrorMessage = styled.div`
   color: red;
   font-size: 12px;
 `;
+
+export const SignUpContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`

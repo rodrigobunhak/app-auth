@@ -2,8 +2,10 @@ import { useState } from "react";
 import { SignIn } from "../../components/SignIn";
 import { SignUp } from "../../components/SignUp";
 import { Container, FormSection, InfoSection } from "./styles";
+import { useTranslation } from "react-i18next";
 
 const Login: React.FC = () => {
+  const { t } = useTranslation();
   const [isSignIn, setIsSignIn] = useState(true);
 
   const handleSignUpClick = () => {
@@ -23,20 +25,13 @@ const Login: React.FC = () => {
       )}
       <InfoSection>
         <h1>Auth<span>.</span></h1>
-        <p>Este é um <span>teste prático</span> de desenvolvimento, criado para avaliar habilidades técnicas em um contexto simulado. </p>
+        <p>{t('This is a')} <span>{t('practical development test')}</span> {t('designed to assess technical skills in a simulated context')}.</p>
       </InfoSection>
       {isSignIn && (
         <FormSection>
           <SignIn onSignUpClick={handleSignUpClick} />
         </FormSection>
       )}
-      {/* <FormSection>
-        {isSignIn ? (
-          <SignIn onSignUpClick={handleSignUpClick} />
-        ) : (
-          <SignUp onBackClick={handleBackClick} />
-        )}
-      </FormSection> */}
     </Container>
   );
 };
