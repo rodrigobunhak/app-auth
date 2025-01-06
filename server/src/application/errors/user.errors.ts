@@ -11,3 +11,9 @@ export class EmailAndPasswordRequiredError extends ApplicationError {
     super("Email and password are required", "EMAIL_PASSWORD_REQUIRED");
   }
 }
+
+export class UserAlreadyExistsError extends ApplicationError {
+  constructor() {
+    super("User already exists", "USER_ALREADY_EXISTS");
+  }
+}

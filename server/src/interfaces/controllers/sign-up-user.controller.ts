@@ -1,3 +1,4 @@
+import { UserAlreadyExistsError } from "@/application/errors/user.errors";
 import { SignUpUserUseCase } from "@/application/usecases/sign-up-user.usecase";
 import { DomainPartTooLongError, EmailTooLongError, InvalidEmailFormatError, LocalPartTooLongError } from "@/domain/errors/email.errors";
 import { PasswordNoLowercaseError, PasswordNoNumberError, PasswordNoSpecialCharError, PasswordNoUppercaseError, PasswordTooShortError } from "@/domain/errors/password.errors";
@@ -36,6 +37,9 @@ export class SignUpUserController {
         case error instanceof LocalPartTooLongError:
         case error instanceof DomainPartTooLongError:
           res.status(400).json({ message: error.message, code: error.code });
+          return;
+        case error instanceof UserAlreadyExistsError:
+          res.status(422).json({ message: error.message, code: error.code });
           return;
         case error instanceof Error:
           res.status(500).json({ message: "Internal server error" });

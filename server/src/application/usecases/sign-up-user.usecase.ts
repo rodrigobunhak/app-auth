@@ -1,6 +1,7 @@
 import { User } from "@/domain/entities/user.entity";
 import { UserRepository } from "@/domain/repositories/user.repository";
 import { injectable, inject } from "inversify";
+import { UserAlreadyExistsError } from "../errors/user.errors";
 
 interface SignUpUserUseCaseInput {
   name: string;
@@ -16,6 +17,8 @@ export class SignUpUserUseCase {
   ) {}
 
   async execute(input: SignUpUserUseCaseInput): Promise<boolean> {
+    const userExist = await this.userRepository.findByEmail(input.email);
+    if (userExist) throw new UserAlreadyExistsError()
     const user = User.create({
       name: input.name,
       email: input.email,
