@@ -1,10 +1,8 @@
-import { useTranslation } from "react-i18next";
 import { useAuth } from "../../contexts/AuthContext";
-import { Button } from "../../styles/components/Button";
 import { HeaderWrapper, Title, UserInfo, UserName } from "./styles";
+import { DoorOpen } from "@phosphor-icons/react";
 
 export function Header(): JSX.Element {
-  const { t } = useTranslation();
   const { user, logout, isAuthenticated } = useAuth();
   
   return (
@@ -13,9 +11,9 @@ export function Header(): JSX.Element {
       {isAuthenticated && (
         <UserInfo>
           <UserName>
-            {t('Logged in as')}: <strong>{user?.name}</strong>
+            {user?.name}
           </UserName>
-          <Button size="small" onClick={logout}>{t('Logout')}</Button>
+          <DoorOpen size={24} onClick={logout} weight="fill"/>
         </UserInfo>
       )}
     </HeaderWrapper>

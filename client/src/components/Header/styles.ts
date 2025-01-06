@@ -8,6 +8,11 @@ export const HeaderWrapper = styled.header`
   padding: 10px 20px;
   background-color: #f8f9fa;
   border-bottom: 1px solid #dee2e6;
+
+  svg {
+    color: #9336b4;
+    cursor: pointer;
+  }
 `;
 
 export const Title = styled.h1`
@@ -22,5 +27,6 @@ export const UserInfo = styled.div`
 
 export const UserName = styled.span`
   margin-right: 10px;
-  font-size: 16px;
+  font-size: 10px;
+  font-weight: 600;
 `;

@@ -7,20 +7,12 @@ import { useTranslation } from "react-i18next";
 const Login: React.FC = () => {
   const { t } = useTranslation();
   const [isSignIn, setIsSignIn] = useState(true);
-
-  const handleSignUpClick = () => {
-    setIsSignIn(false);
-  };
-
-  const handleBackClick = () => {
-    setIsSignIn(true);
-  };
-
+  
   return (
     <Container>
       {!isSignIn && (
         <FormSection>
-          <SignUp onBackClick={handleBackClick} />
+          <SignUp onBackClick={() => setIsSignIn(true)} onSignUpClick={() => setIsSignIn(true)} />
         </FormSection>
       )}
       <InfoSection>
@@ -29,7 +21,7 @@ const Login: React.FC = () => {
       </InfoSection>
       {isSignIn && (
         <FormSection>
-          <SignIn onSignUpClick={handleSignUpClick} />
+          <SignIn onSignUpClick={() => setIsSignIn(false)} />
         </FormSection>
       )}
     </Container>

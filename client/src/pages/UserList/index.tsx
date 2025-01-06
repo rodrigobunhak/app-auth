@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { userService } from "../../services/Api";
-import { Container, FilterContainer, HeaderItem, Input, ListHeader, PageButton, PaginationContainer, UserData, UserItem, UserList } from "./styles";
+import { Container, HeaderItem, Input, ListHeader, PageButton, PaginationContainer, UserData, UserItem, UserList } from "./styles";
 import { Header } from "../../components/Header";
 
 type User = {
@@ -30,7 +30,7 @@ export function UsersList(): JSX.Element {
     const fetchUsers = async (): Promise<void> => {
       try {
         const filtersParam = JSON.stringify(filters);
-        const data = await userService.getUsers(currentPage, 2, filtersParam);
+        const data = await userService.getUsers(currentPage, 3, filtersParam);
         if (Array.isArray(data.users)) {
           setUsers(data.users);
           setTotalPages(data.totalPages);
@@ -92,26 +92,26 @@ export function UsersList(): JSX.Element {
     <>
       <Header />
       <Container>
-        <FilterContainer>
-          <Input
-            type="text"
-            name="name"
-            placeholder="Filter by name"
-            value={filters.name}
-            onChange={handleFilterChange}
-          />
-          <Input
-            type="text"
-            name="email"
-            placeholder="Filter by email"
-            value={filters.email}
-            onChange={handleFilterChange}
-          />
-        </FilterContainer>
         <UserList>
           <ListHeader>
-            <HeaderItem>Name</HeaderItem>
-            <HeaderItem>Email</HeaderItem>
+            <HeaderItem>
+              <Input
+                type="text"
+                name="name"
+                placeholder="Name"
+                value={filters.name}
+                onChange={handleFilterChange}
+              />
+            </HeaderItem>
+            <HeaderItem>
+              <Input
+                type="text"
+                name="email"
+                placeholder="Email"
+                value={filters.email}
+                onChange={handleFilterChange}
+              />
+            </HeaderItem>
           </ListHeader>
           {users.map((user) => (
             <UserItem key={user.id}>

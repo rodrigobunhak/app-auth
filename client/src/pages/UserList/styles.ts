@@ -1,9 +1,7 @@
 import { styled } from "styled-components";
 
 export const Container = styled.div`
-  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
 `;
 
 export const FilterContainer = styled.div`
@@ -33,26 +31,26 @@ export const UserList = styled.div`
 
 export const ListHeader = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 1rem;
+  grid-template-columns: 2fr 4fr;
+  padding: 0.5rem 2rem;
   background-color: #f9f9f9;
   border-bottom: 2px solid #eee;
-  font-weight: 600;
-  color: #333;
+  gap: 8px;
 `;
 
 export const HeaderItem = styled.div`
   &:last-child {
-    text-align: right;
+    text-align: left;
   }
 `;
 
 export const UserItem = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 1rem;
+  grid-template-columns: 2fr 4fr;
+  padding: 0.5rem 2rem;
   border-bottom: 1px solid #eee;
   transition: background-color 0.2s;
+  gap: 8px;
 
   &:hover {
     background-color: #f9f9f9;
@@ -64,8 +62,12 @@ export const UserItem = styled.div`
 `;
 
 export const UserData = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
   &:last-child {
-    text-align: right;
+    text-align: left;
   }
 `;
 

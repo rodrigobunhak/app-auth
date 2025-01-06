@@ -1,5 +1,4 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { authService } from "../../services/Api";
 import { ErrorMessage, Form, SignUpContainer, Title } from "./styles";
 import { Button } from "../../styles/components/Button";
@@ -23,9 +22,10 @@ type ApiError = {
 
 type SignUpProps = {
   onBackClick: () => void;
+  onSignUpClick: () => void;
 }
 
-export const SignUp: React.FC<SignUpProps> = ({ onBackClick }) => {
+export const SignUp: React.FC<SignUpProps> = ({ onBackClick, onSignUpClick }) => {
   const { t } = useTranslation();
   const [formData, setFormData] = useState<SignUpData>({
     name: '',
@@ -33,7 +33,6 @@ export const SignUp: React.FC<SignUpProps> = ({ onBackClick }) => {
     password: '',
   });
   const [error, setError] = useState<string>('');
-  const navigate = useNavigate();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setFormData({
@@ -46,7 +45,7 @@ export const SignUp: React.FC<SignUpProps> = ({ onBackClick }) => {
     e.preventDefault();
     try {
       await authService.signUp(formData.name, formData.email, formData.password);
-      navigate('/signin');
+      onSignUpClick()
     } catch (err) {
       const apiError = err as ApiError;
       setError(apiError.message);
