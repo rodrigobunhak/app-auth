@@ -17,7 +17,7 @@ Este projeto é uma aplicação de autenticação configurada para rodar utiliza
 
 3. Inicie os containers com Docker Compose:
    ```bash
-   docker compose up -d
+   docker compose up --build -d
    ```
 
 ## Acesse o projeto
