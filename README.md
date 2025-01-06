@@ -2,19 +2,12 @@
 
 Este projeto é uma aplicação de autenticação configurada para rodar utilizando Docker Compose. Siga os passos abaixo para configurar e iniciar o projeto localmente.
 
-## Pré-requisitos
-
-Certifique-se de que os seguintes softwares estejam instalados em sua máquina:
-
-- [Git](https://git-scm.com/)
-- [Docker](https://www.docker.com/)
-- [Docker Compose](https://docs.docker.com/compose/)
 
 ## Como rodar o projeto
 
 1. Clone o repositório:
    ```bash
-   git clone <endereco-do-repositorio>
+   git clone git@github.com:rodrigobunhak/app-auth.git
    ```
 
 2. Acesse o diretório do projeto:
@@ -29,7 +22,7 @@ Certifique-se de que os seguintes softwares estejam instalados em sua máquina:
 
 ## Acesse o projeto
 
-Depois de executar os passos acima, o projeto estará disponível. Verifique o arquivo `docker-compose.yml` para confirmar a porta configurada.
+Depois de executar os passos acima, o projeto estará disponível em http://localhost:5173/
 
 ## Parando o projeto
 
