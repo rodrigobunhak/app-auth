@@ -86,10 +86,10 @@ i18n.use(initReactI18next).init({
       },
     },
   },
-  lng: 'pt', // Define a língua padrão
-  fallbackLng: 'en', // Caso a tradução não seja encontrada
+  lng: 'pt',
+  fallbackLng: 'en',
   interpolation: {
-    escapeValue: false, // Não é necessário para o React
+    escapeValue: false,
   },
 });
 

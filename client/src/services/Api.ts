@@ -1,8 +1,7 @@
 import axios, { AxiosError } from 'axios';
 
-const API_BASE_URL = 'http://localhost:3000/api'; // Replace with your actual API URL
+const API_BASE_URL = 'http://localhost:3000/api';
 
-// Create axios instance with default config
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
@@ -10,7 +9,6 @@ const api = axios.create({
   },
 });
 
-// Add token to requests if it exists
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('token');
   if (token) {
@@ -19,7 +17,6 @@ api.interceptors.request.use((config) => {
   return config;
 });
 
-// Auth services
 export const authService = {
   async signIn(email: string, password: string) {
     try {
@@ -51,7 +48,6 @@ export const authService = {
   }
 };
 
-// User services
 export const userService = {
   async getUsers(page: number, limit: number, filters: unknown) {
     try {
