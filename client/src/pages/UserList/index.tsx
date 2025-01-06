@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { userService } from "../../services/Api";
 import { Container, HeaderItem, Input, ListHeader, PageButton, PaginationContainer, UserData, UserItem, UserList } from "./styles";
 import { Header } from "../../components/Header";
+import { useTranslation } from "react-i18next";
 
 type User = {
   id: string;
@@ -20,6 +21,7 @@ type Filters = {
 };
 
 export function UsersList(): JSX.Element {
+  const { t } = useTranslation();
   const [users, setUsers] = useState<User[]>([]);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
@@ -59,7 +61,7 @@ export function UsersList(): JSX.Element {
           onClick={() => handlePageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          Previous
+          {t('Previous')}
         </PageButton>
         {pages.map((page) => (
           <PageButton
@@ -75,7 +77,7 @@ export function UsersList(): JSX.Element {
           onClick={() => handlePageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
         >
-          Next
+          {t('Next')}
         </PageButton>
       </PaginationContainer>
     );
@@ -98,7 +100,7 @@ export function UsersList(): JSX.Element {
               <Input
                 type="text"
                 name="name"
-                placeholder="Name"
+                placeholder={t('Name')}
                 value={filters.name}
                 onChange={handleFilterChange}
               />

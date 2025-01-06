@@ -21,6 +21,7 @@ i18n.use(initReactI18next).init({
         'Email and password are required': 'Email and password are required',
         'Token expired': 'Token expired',
         'Invalid token': 'Invalid token',
+        'User already exists': 'User already exists',
 
         'Logged in as': 'Logged in as',
         'Logout': 'Logout',
@@ -38,6 +39,9 @@ i18n.use(initReactI18next).init({
         'This is a': 'This is a',
         'practical development test': 'practical development test',
         'designed to assess technical skills in a simulated context': 'test designed to assess technical skills in a simulated context',
+        'Previous': 'Previous',
+        'Next': 'Next',
+        'Name': 'Name',
       },
     },
     pt: {
@@ -58,6 +62,7 @@ i18n.use(initReactI18next).init({
         'Email and password are required': 'E-mail e senha são obrigatórios',
         'Token expired': 'Token expirado',
         'Invalid token': 'Token inválido',
+        'User already exists': 'Usuário já existente',
         
         'Logged in as': 'Conectado como',
         'Logout': 'Sair',
@@ -75,6 +80,9 @@ i18n.use(initReactI18next).init({
         'This is a': 'Este é um',
         'practical development test': 'teste prático de desenvolvimento',
         'designed to assess technical skills in a simulated context': 'criado para avaliar habilidades técnicas em um contexto simulado',
+        'Previous': 'Anterior',
+        'Next': 'Próxima',
+        'Name': 'Nome',
       },
     },
   },
