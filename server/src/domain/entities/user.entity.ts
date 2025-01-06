@@ -27,7 +27,6 @@ export class User {
     this._name = props.name;
     this._email = Email.create(props.email);
     this._password = props.password;
-    // TODO: Criar o validade
   };
 
   public static create(props: UserPropsCreate): User {
