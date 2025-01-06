@@ -7,6 +7,7 @@ import { TextButton } from "../../styles/components/TextButton";
 import { InputText } from "../InputText";
 import MailIcon from "../../public/icons/mail.svg";
 import LockIcon from "../../public/icons/lock.svg";
+import { useTranslation } from "react-i18next";
 
 type SignInCredentials = {
   email: string;
@@ -24,6 +25,7 @@ type SignInProps = {
 
 
 export const SignIn: React.FC<SignInProps> = ({ onSignUpClick }) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { signIn } = useAuth();
   const [credentials, setCredentials] = useState<SignInCredentials>({
@@ -74,7 +76,7 @@ export const SignIn: React.FC<SignInProps> = ({ onSignUpClick }) => {
         icon={<img src={LockIcon} />}
         required
       />
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      {error && <ErrorMessage>{t(error)}</ErrorMessage>}
       <Button type="submit">Sign In</Button>
       <SignUpContainer>
         Não tem uma conta?

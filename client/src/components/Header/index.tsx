@@ -7,7 +7,7 @@ export function Header(): JSX.Element {
   
   return (
     <HeaderWrapper>
-      <Title>Auth App</Title>
+      <Title>Auth.</Title>
       {isAuthenticated && (
         <UserInfo>
           <UserName>

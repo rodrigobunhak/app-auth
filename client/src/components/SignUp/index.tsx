@@ -8,6 +8,7 @@ import { InputText } from "../InputText";
 import MailIcon from "../../public/icons/mail.svg";
 import LockIcon from "../../public/icons/lock.svg";
 import PersonIcon from "../../public/icons/person.svg";
+import { useTranslation } from "react-i18next";
 
 type SignUpData = {
   name: string;
@@ -25,6 +26,7 @@ type SignUpProps = {
 }
 
 export const SignUp: React.FC<SignUpProps> = ({ onBackClick }) => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState<SignUpData>({
     name: '',
     email: '',
@@ -82,7 +84,7 @@ export const SignUp: React.FC<SignUpProps> = ({ onBackClick }) => {
         icon={<img src={LockIcon} />}
         required
       />
-      {error && <ErrorMessage>{error}</ErrorMessage>}
+      {error && <ErrorMessage>{t(error)}</ErrorMessage>}
       <Button type="submit">Sign Up</Button>
       <TextButton type="button" onClick={onBackClick}>Voltar</TextButton>
     </Form>
