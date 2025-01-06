@@ -17,7 +17,7 @@ Este projeto é uma aplicação de autenticação configurada para rodar utiliza
 
 3. Inicie os containers com Docker Compose:
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 ## Acesse o projeto
@@ -28,6 +28,6 @@ Depois de executar os passos acima, o projeto estará disponível em http://loca
 
 Para parar os containers, execute o seguinte comando:
 ```bash
-docker-compose down
+docker compose down
 ```
 
